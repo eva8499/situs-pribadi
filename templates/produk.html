@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Produk</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="navbar">
+    <h1 class="judul-navbar">Daftar Produk</h1>
+
+    <div class="nav-kanan">
+        {{if .Username}}
+            Halo, {{.Username}} |
+            <a href="/logout">Logout</a>
+        {{else}}
+            <a href="/login">Login</a>
+        {{end}}
+    </div>
+</div>
+
+<div class="produk-list">
+    {{range .Products}}
+    <div class="card">
+        <img src="{{.Image}}" class="produk-img">
+
+        <div class="info">
+            <h3>{{.Name}}</h3>
+            <p class="harga">Rp{{.Price}}</p>
+
+            <a href="/tambah?nama={{.Name}}">
+                <button class="btn">+ Keranjang</button>
+            </a>
+        </div>
+    </div>
+    {{end}}
+</div>
+
+</body>
+</html>

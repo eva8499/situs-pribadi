@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>E-Commerce</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<header>
+    <h1>Evara</h1>
+    <nav>
+        <a href="/">Beranda</a>
+         <a href="/keranjang">keranjang</a>
+
+        {{if .Username}}
+            <span>Hai, {{.Username}} </span>
+            <a href="/logout">Logout</a>
+        {{else}}
+            <a href="/login">Masuk</a>
+            <a href="/register">Daftar</a>
+        {{end}}
+    </nav>
+</header>
+
+<section class="wall">
+    <img src="/static/img/wall.png" class="wall-img">
+</section>
+
+<section class="kategori">
+    <img src="/static/img/kategori.png" class="judul-kategori">
+
+    <div class="kategori-list">
+
+        <a href="/produk?kategori=buah" class="kategori-item">
+            <img src="/static/img/buah.png">
+        </a>
+
+        <a href="/produk?kategori=baju" class="kategori-item">
+            <img src="/static/img/baju.png">
+        </a>
+
+        <a href="/produk?kategori=elektronik" class="kategori-item">
+            <img src="/static/img/elektronik.png">
+        </a>
+    </div>
+</section>
+
+</body>
+</html>

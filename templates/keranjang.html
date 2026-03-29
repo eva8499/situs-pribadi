@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Keranjang</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<h1 class="judul">Keranjang</h1>
+
+{{range $i, $p := .}}
+<div>
+    {{$p.Name}} - Rp{{$p.Price}}
+    <a href="/hapus?nama={{$p.Name}}" class="hapus-btn">Hapus</a>
+</div>
+{{end}}
+
+</body>
+</html>
