@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"html/template"
 	"net/http"
+	"os"
 
 	_ "modernc.org/sqlite"
 )
@@ -81,9 +82,17 @@ func main() {
 	http.HandleFunc("/tambah", tambahHandler)
 	http.HandleFunc("/keranjang", keranjangHandler)
 
-	fmt.Println("Server jalan di http://localhost:4000")
+	//fmt.Println("Server jalan di http://localhost:4000")
 
-	http.ListenAndServe(":4000", nil)
+	//http.ListenAndServe(":4000", nil)
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "8080"
+	}
+
+	fmt.Println("Server jalan di port", port)
+
+	http.ListenAndServe(":"+port, nil)
 }
 
 func indexHandler(w http.ResponseWriter, r *http.Request) {
